@@ -8,7 +8,7 @@
 # Project
 PROJECT_NAME = hello
 SOURCES = main.c func.c
-ARGUMENTS = p1 p2 p3
+ARGUMENTS = 
 # Build
 BUILD_FOLDER = build
 EXECUTABLE = ./${BUILD_FOLDER}/${PROJECT_NAME}
