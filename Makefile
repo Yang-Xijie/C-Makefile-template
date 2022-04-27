@@ -2,11 +2,7 @@
 # build project: `make build`
 # run project: `make` or `make run`
 # debug project: `make debug`
-# clean the build folder: `make clean`
-
-# [Config]
-.PHONY = run build debug clean
-.DEFAULT_GOAL = run
+# clean build folder: `make clean`
 
 # [Info]
 # Project
@@ -16,7 +12,7 @@ ARGUMENTS = p1 p2 p3
 # Build
 BUILD_FOLDER = build
 EXECUTABLE = ./${BUILD_FOLDER}/${PROJECT_NAME}
-EXECUTABLE_DEBUG = ./${BUILD_FOLDER}/${PROJECT_NAME}-debug
+EXECUTABLE_DEBUG = ./${EXECUTABLE}-debug
 # Tools
 CC = clang
 CDB = lldb
@@ -46,3 +42,7 @@ create-folder:
 	@mkdir -p ${BUILD_FOLDER}
 clean:
 	@rm -rf ${BUILD_FOLDER}
+
+# [Config]
+.PHONY = build-debug debug build run create-folder clean 
+.DEFAULT_GOAL = run
