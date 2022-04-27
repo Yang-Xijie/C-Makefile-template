@@ -1,0 +1,50 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run",
+            "type": "shell",
+            "command": "make run",
+            "group": {
+                // Terminal > Run Build Task... (⇧⌘B)
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                // Controls whether the executed command is echoed to the panel. Default is true.
+                "echo": true, // 打开可以看到编译的命令，把命令本身输出一次
+                // Controls whether the terminal running the task is revealed or not. Default is "always".
+                //   always: Always reveals the terminal when this task is executed.
+                //   silent: Only reveals the terminal if the task exits with an error or the problem matcher finds an error.(会显示错误，但不会显示警告)
+                //   never: Never reveals the terminal when this task is executed.
+                "reveal": "always", // 总是切换到该panel查看输出结果
+                // Controls whether the panel takes focus. Default is false.
+                "focus": true, // 将鼠标移动到该panel
+                // Controls if the panel is shared between tasks, dedicated to this task or a new one is created on every run.
+                "panel": "shared", // 共用一个panel 防止多次运行生成多个panel
+                // Controls whether to show the `Terminal will be reused by tasks, press any key to close it` message.
+                "showReuseMessage": true, // 不想看改成false即可
+                // Controls whether the terminal is cleared before executing the task.
+                "clear": false, // 保留之前的信息
+            },
+        },
+        {
+            "label": "Build-Debug",
+            "type": "shell",
+            "command": "make build-debug",
+            "presentation": {
+                "echo": true,
+                "reveal": "silent",
+                "focus": false, 
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": false,
+            },
+        },
+        {
+            "label": "Open Terminal.app",
+            "type": "shell",
+            "command": "osascript -e 'tell application \"Terminal\"\ndo script \"echo now VS Code is able to open Terminal.app\"\nend tell'",
+        }
+    ]
+}

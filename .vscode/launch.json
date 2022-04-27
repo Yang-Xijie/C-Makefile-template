@@ -1,0 +1,46 @@
+{
+    // [Info]
+    // One of the key features of Visual Studio Code is its great debugging support. VS Code's built-in debugger helps accelerate your edit, compile and debug loop. VS Code keeps debugging configuration information in a launch.json file located in a .vscode folder in your workspace (project root folder).
+    // [References]
+    // VS Code docs | Debugging: https://code.visualstudio.com/docs/editor/debugging#_launchjson-attributes
+    // VS Code docs | Configuring C/C++ debugging https://code.visualstudio.com/docs/cpp/launch-json-reference
+    "version": "0.2.0",
+    "configurations": [
+        {
+            // The reader-friendly name to appear in the Debug launch configuration drop-down.
+            // 在VSCode侧边栏Run那里看到的名字
+            "name": "C Debug",
+            /* ------------ */
+            // Indicates the underlying debugger being used. Must be cppvsdbg when using the Visual Studio Windows debugger, and cppdbg when using GDB or LLDB.
+            // VSCode的调试方式 C和C++代码都使用`cppdbg`
+            "type": "cppdbg",
+            // Indicates the debugger that VS Code will connect to. Must be set to gdb or lldb.
+            // VSCode连接的调试器 macOS默认使用`lldb`
+            "MIMode": "lldb",
+            // Indicates whether the configuration section is intended to launch the program or attach to an already running instance.
+            // Debug的类型 launch表示程序和调试器同时启动 attach表示在程序启动后附加调试器
+            "request": "launch",
+            // break immediately when the program launches
+            "stopAtEntry": false,
+            // macOS: When set to true, it will spawn an external console through lldb-mi. When set to false, the output can be seen in VS Code's debugConsole. Due to limitations within lldb-mi, integratedTerminal support is not available.
+            "externalConsole": true,
+            /* ------------ */
+            // current working directory for finding dependencies and other files
+            // 没有这个属性会报错`launch: property 'cwd' is missing or empty`
+            "cwd": "${workspaceFolder}",
+            // To launch a task before the start of a debug session, set this attribute to the label of a task specified in tasks.json.
+            "preLaunchTask": "Build-Debug", //在调试之前要进行的工作 compile是在 tasks.json 的编译任务里面的label
+            // Specifies the full path to the executable the debugger will launch or attach to. The debugger requires this location in order to load debug symbols.
+            // debug的程序(带-g参数编译出来的二进制可执行文件) 需要和preLaunchTask中生成的可执行文件一致
+            // 需要加入`${workspaceFolder}/`以使用绝对路径 否则会报错`launch: program 'build/hello-debug' does not exist`
+            "program": "${workspaceFolder}/build/hello-debug", // 注意需要在main.c上点
+            // arguments passed to the program to debug
+            // 比如运行你的程序添加输入参数（argc/argv），需要在这里添加
+            "args": [
+                "a1",
+                "a2",
+                "a3"
+            ],
+        }
+    ]
+}
