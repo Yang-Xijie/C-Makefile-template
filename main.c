@@ -1,13 +1,10 @@
-#include<stdio.h>
-#include<stdbool.h>
+#include <stdbool.h>
+#include <stdio.h>
 
-int main(){
-    printf("Hello, world!你好\n");
-    bool a = true;
-    if (a) {
-        printf("true\n");
-    } else {
-        printf("false\n");
-    }
-    return 0;
+#include "func.h"
+
+int main() {
+  printf("Hello, world!你好\n");
+  printf("func return %d\n", giveme5());
+  return 0;
 }

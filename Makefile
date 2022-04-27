@@ -11,7 +11,7 @@
 # [Info]
 # Project
 PROJECT_NAME = hello
-SOURCES = main.c
+SOURCES = main.c func.c
 # Build
 BUILD_FOLDER = build
 EXECUTABLE = ./${BUILD_FOLDER}/${PROJECT_NAME}

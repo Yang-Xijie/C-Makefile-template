@@ -1,1 +1,5 @@
+# Make
 build/
+
+# VS Code
+.vscode/
