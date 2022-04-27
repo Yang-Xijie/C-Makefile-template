@@ -11,6 +11,6 @@ int main(int argc, char *argv[]) {
     printf("\n");
   }
   printf("Hello, world!\n");
-  printf("func return %d\n", giveme5());
+  printf("func return %d\n", GiveMeFive());
   return 0;
 }

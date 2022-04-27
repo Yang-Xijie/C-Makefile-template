@@ -4,11 +4,15 @@
 # debug project: `make debug`
 # clean the build folder: `make clean`
 
+# [Config]
+.PHONY = run build debug clean
+.DEFAULT_GOAL = run
+
 # [Info]
 # Project
 PROJECT_NAME = hello
 SOURCES = main.c func.c
-ARGS = p1 p2 p3
+ARGUMENTS = p1 p2 p3
 # Build
 BUILD_FOLDER = build
 EXECUTABLE = ./${BUILD_FOLDER}/${PROJECT_NAME}
@@ -26,10 +30,6 @@ CFLAGS = -std=c11 -W -Wall
 # `-O2`
 #     "-O2 is a moderate level of optimization which enables most optimizations." -- https://stackoverflow.com/a/21450534/14298786
 
-# [Config]
-.PHONY = run build debug clean
-.DEFAULT_GOAL = run
-
 # [Target]
 # Debug
 build-debug: create-folder ${SOURCES}
@@ -37,10 +37,10 @@ build-debug: create-folder ${SOURCES}
 debug: build-debug
 	@${CDB} ${EXECUTABLE_DEBUG}
 # Release
-build: create-folder
+build: create-folder ${SOURCES}
 	@${CC} ${SOURCES} -o ${EXECUTABLE} ${CFLAGS} -O2
 run: build
-	@${EXECUTABLE} ${ARGS}
+	@${EXECUTABLE} ${ARGUMENTS}
 # Others
 create-folder:
 	@mkdir -p ${BUILD_FOLDER}

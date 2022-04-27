@@ -1,5 +1,3 @@
 #include "func.h"
 
-int giveme5(){
-    return 5;
-}
+int GiveMeFive() { return 5; }
