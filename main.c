@@ -2,7 +2,6 @@
 #include<stdbool.h>
 
 int main(){
-    int b = 0;
     printf("Hello, world!你好\n");
     bool a = true;
     if (a) {
