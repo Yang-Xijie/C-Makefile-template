@@ -1,4 +1,5 @@
 {
+    // Tasks in VS Code can be configured to run scripts and start processes so that many of these existing tools can be used from within VS Code without having to enter a command line or write new code. Workspace or folder specific tasks are configured from the tasks.json file in the .vscode folder for a workspace.
     "version": "2.0.0",
     "tasks": [
         {
