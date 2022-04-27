@@ -1,26 +1,21 @@
-# [References]
-# 自动镜像 GitHub 仓库到 Gitee https://shixiangwang.github.io/sync2gitee/
-# sync2gitee/.github/workflows/auto-sync.yml https://github.com/ShixiangWang/sync2gitee/blob/master/.github/workflows/auto-sync.yml
-
 on:
   push:
-    branches: main
+    branchs: main  
   schedule:
-    # * is a special character in YAML so you have to quote this string
-    # UTC 17:00 -> CST (China) 1:00, see https://datetime360.com/cn/utc-cst-china-time/
+    # every UTC 17:00 -> CST (China) 1:00
     - cron: '0 17 * * *'
-name: Mirror GitHub Auto Queried Repos to Gitee
+name: Mirror Github repos to Gitee
 jobs:
   run:
     name: Sync-GitHub-to-Gitee
     runs-on: ubuntu-latest
     steps:
-    - name: Mirror the Github repos to Gitee.
+    - name: Mirror Github repos to Gitee
       uses: Yikun/hub-mirror-action@master
       with:
         src: github/Yang-Xijie
         dst: gitee/yang-xijie
         dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
         dst_token: ${{ secrets.GITEE_TOKEN }}
-        mappings: ".github=>github"
+        static_list: "C-Makefile-template"
         force_update: true
