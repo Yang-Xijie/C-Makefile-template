@@ -1,7 +1,3 @@
-# [TODO]
-# - 添加`int main()`的自定义参数
-# - 添加其他的头文件和源文件 测试
-
 # [Usage]
 # build project: `make build`
 # run project: `make` or `make run`
@@ -12,6 +8,7 @@
 # Project
 PROJECT_NAME = hello
 SOURCES = main.c func.c
+ARGS = p1 p2 p3
 # Build
 BUILD_FOLDER = build
 EXECUTABLE = ./${BUILD_FOLDER}/${PROJECT_NAME}
@@ -34,19 +31,18 @@ CFLAGS = -std=c11 -W -Wall
 .DEFAULT_GOAL = run
 
 # [Target]
-create-folder:
-	@mkdir -p ${BUILD_FOLDER}
 # Debug
 build-debug: create-folder ${SOURCES}
 	@${CC} ${SOURCES} -o ${EXECUTABLE_DEBUG} ${CFLAGS} -g 
 debug: build-debug
 	@${CDB} ${EXECUTABLE_DEBUG}
-
 # Release
 build: create-folder
 	@${CC} ${SOURCES} -o ${EXECUTABLE} ${CFLAGS} -O2
 run: build
-	@${EXECUTABLE}
-
+	@${EXECUTABLE} ${ARGS}
+# Others
+create-folder:
+	@mkdir -p ${BUILD_FOLDER}
 clean:
 	@rm -rf ${BUILD_FOLDER}
