@@ -19,6 +19,7 @@ CDB = lldb
 CFLAGS = -std=c11 -W -Wall
 # `-std=<value>`
 #     Language standard to compile for
+#     Check https://clang.llvm.org/c_status.html
 # `-g`
 #     Generate source-level debug information
 # `-W -Wall`
