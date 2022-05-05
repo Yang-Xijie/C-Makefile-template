@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-#include "func.h"
-
 int main(int argc, char *argv[]) {
   if (argc > 1) {
     printf("%d arguments: ", argc - 1);
@@ -11,6 +9,5 @@ int main(int argc, char *argv[]) {
     printf("\n");
   }
   printf("Hello, world!\n");
-  printf("func return %d\n", GiveMeFive());
   return 0;
 }

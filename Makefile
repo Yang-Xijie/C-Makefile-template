@@ -7,8 +7,8 @@
 # [Info]
 # Project
 PROJECT_NAME = hello
-SOURCES = main.c func.c
-ARGUMENTS = a1 a2 a3
+SOURCES = main.c # All source files of the project.
+ARGUMENTS = a1 a2 a3 # The arguments of your executable, seperated by spaces.
 # Build
 BUILD_FOLDER = build
 EXECUTABLE = ./${BUILD_FOLDER}/${PROJECT_NAME}
