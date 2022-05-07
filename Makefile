@@ -15,7 +15,7 @@ EXECUTABLE = ./${BUILD_FOLDER}/${PROJECT_NAME}
 EXECUTABLE_DEBUG = ./${EXECUTABLE}-debug
 # Tools
 CC = clang
-CDB = lldb
+CDB = lldb # https://lldb.llvm.org/use/tutorial.html
 CFLAGS = -std=c11 -W -Wall
 # `-std=<value>`
 #     Language standard to compile for
